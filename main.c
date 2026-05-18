@@ -8,12 +8,32 @@ void inputGrade(int grade[13]){
     }
 }
 
-int avarageScore(int grade[13]){
+float avarageScore(int grade[13]){
     float sum = 0;
     for(int i = 0; i < 13; i++){
         sum += grade[i];
     }
     return sum / 13;
+}
+
+float highestAvarage(float avarageScores[5]){
+    float highest = avarageScores[0];
+    for(int i = 1; i < 5; i++){
+        if(avarageScores[i] > highest){
+            highest = avarageScores[i];
+        }
+    }
+    return highest;
+}
+
+float lowestAvarage(float avarageScores[5]){
+    float lowest = avarageScores[0];
+    for(int i = 1; i < 5; i++){
+        if(avarageScores[i] < lowest){
+            lowest = avarageScores[i];
+        }
+    }
+    return lowest;
 }
 
 void printScores(char name[10], int grades[13]){
@@ -48,11 +68,16 @@ int main(){
     int grade5[13];
     inputGrade(grade5);
 
-    float avarage1 = avarageScore(grade1);
-    float avarage2 = avarageScore(grade2);
-    float avarage3 = avarageScore(grade3);
-    float avarage4 = avarageScore(grade4);
-    float avarage5 = avarageScore(grade5);
+    float avarageScores[5];
+
+    avarageScores[0] = avarageScore(grade1);
+    avarageScores[1] = avarageScore(grade2);
+    avarageScores[2] = avarageScore(grade3);
+    avarageScores[3] = avarageScore(grade4);
+    avarageScores[4] = avarageScore(grade5);
+
+    float highest = highestAvarage(avarageScores);
+    float lowest = lowestAvarage(avarageScores);
 
     printScores(name1, grade1);
     printScores(name2, grade2);
