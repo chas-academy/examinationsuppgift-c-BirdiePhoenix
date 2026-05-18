@@ -28,7 +28,7 @@ int highestAverage(float averageScores[5]){
     return highestIndex;
 }
 
-float totalAvarage(float averageScores[5]){
+float calTotalAverage(float averageScores[5]){
     float sum = 0;
     for(int i = 0; i < 5; i++){
         sum += averageScores[i];
@@ -37,7 +37,7 @@ float totalAvarage(float averageScores[5]){
 }
 
 int main(){
-    char names[5][10];
+    char names[5][11];
 
     for(int i = 0; i < 5; i++){
         scanf("%s", names[i]);
@@ -59,10 +59,10 @@ int main(){
 
     printf("%s\n", names[highestIndex]);
 
-    float totalAverage = totalAvarage(averageScores);
+    float totalAverage = calTotalAverage(averageScores);
 
     for(int i = 0; i < 5; i++){
-        if(averageScores[i] > totalAverage){
+        if(averageScores[i] < totalAverage){
             printf("%s\n", names[i]);
         }
     }
