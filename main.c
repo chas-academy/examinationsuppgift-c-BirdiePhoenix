@@ -49,17 +49,6 @@ int main(){
         scanf("%s", names[i]);
     }
 
-    int grade1[13];
-    inputGrade(grade1);
-    int grade2[13];
-    inputGrade(grade2);
-    int grade3[13];
-    inputGrade(grade3);
-    int grade4[13];
-    inputGrade(grade4);
-    int grade5[13];
-    inputGrade(grade5);
-
     int allGrades[5][13];
 
     for(int i = 0; i < 5; i++){
