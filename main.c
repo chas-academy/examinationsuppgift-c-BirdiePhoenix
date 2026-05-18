@@ -57,6 +57,7 @@ int main(){
                     names[i][j] = names[i][j] + 32;
                 }
             }
+        }
     }
 
     int allGrades[5][13];
