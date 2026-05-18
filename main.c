@@ -16,27 +16,18 @@ float avarageScore(int grade[13]){
     return sum / 13;
 }
 
-float highestAvarage(float avarageScores[5]){
+int highestAvarage(float avarageScores[5]){
     float highest = avarageScores[0];
+    int highestIndex = 0;
     for(int i = 1; i < 5; i++){
         if(avarageScores[i] > highest){
-            highest = avarageScores[i];
+            highestIndex = i;
         }
     }
-    return highest;
+    return highestIndex;
 }
 
-float lowestAvarage(float avarageScores[5]){
-    float lowest = avarageScores[0];
-    for(int i = 1; i < 5; i++){
-        if(avarageScores[i] < lowest){
-            lowest = avarageScores[i];
-        }
-    }
-    return lowest;
-}
-
-void printScores(char name[10], int grades[13]){
+void printScores(char name [10], int grades[13]){
     printf("%s ", name);
     for(int i = 0; i < 13; i++){
         printf("%d ", grades[i]);
@@ -57,6 +48,8 @@ int main(){
     scanf("%s", name4);
     scanf("%s", name5);
 
+    char names[5][10] = {name1, name2, name3, name4, name5};
+
     int grade1[13];
     inputGrade(grade1);
     int grade2[13];
@@ -68,6 +61,8 @@ int main(){
     int grade5[13];
     inputGrade(grade5);
 
+    int allGrades[5][13] = {grade1, grade2, grade3, grade4, grade5};
+
     float avarageScores[5];
 
     avarageScores[0] = avarageScore(grade1);
@@ -76,14 +71,9 @@ int main(){
     avarageScores[3] = avarageScore(grade4);
     avarageScores[4] = avarageScore(grade5);
 
-    float highest = highestAvarage(avarageScores);
-    float lowest = lowestAvarage(avarageScores);
+    int highestIndex = highestAvarage(avarageScores);
 
-    printScores(name1, grade1);
-    printScores(name2, grade2);
-    printScores(name3, grade3);
-    printScores(name4, grade4);
-    printScores(name5, grade5);
+    printScores(names[highestIndex], allGrades[highestIndex]);
 
     return 0;
 }
