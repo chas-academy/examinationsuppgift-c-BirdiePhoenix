@@ -28,21 +28,15 @@ int highestAverage(float averageScores[5]){
     return highestIndex;
 }
 
-void printScores(char name [10], int grades[13]){
-    printf("%s ", name);
-    for(int i = 0; i < 13; i++){
-        printf("%d ", grades[i]);
+float totalAvarage(float averageScores[5]){
+    float sum = 0;
+    for(int i = 0; i < 5; i++){
+        sum += averageScores[i];
     }
-    printf("\n");
+    return sum / 5;
 }
 
 int main(){
-    char name1[10];
-    char name2[10];
-    char name3[10];
-    char name4[10];
-    char name5[10];
-
     char names[5][10];
 
     for(int i = 0; i < 5; i++){
@@ -57,15 +51,21 @@ int main(){
 
     float averageScores[5];
 
-    averageScores[0] = averageScore(allGrades[0]);
-    averageScores[1] = averageScore(allGrades[1]);
-    averageScores[2] = averageScore(allGrades[2]);
-    averageScores[3] = averageScore(allGrades[3]);
-    averageScores[4] = averageScore(allGrades[4]);
+    for(int i = 0; i < 5; i++){
+        averageScores[i] = averageScore(allGrades[i]);
+    }
 
     int highestIndex = highestAverage(averageScores);
 
-    printScores(names[highestIndex], allGrades[highestIndex]);
+    printf("%s\n", names[highestIndex]);
+
+    float totalAverage = totalAvarage(averageScores);
+
+    for(int i = 0; i < 5; i++){
+        if(averageScores[i] > totalAverage){
+            printf("%s\n", names[i]);
+        }
+    }
 
     return 0;
 }
