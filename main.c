@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 void inputGrade(int grade[13]){
     for(int i = 0; i < 13; i++){
@@ -41,6 +40,12 @@ int main(){
 
     for(int i = 0; i < 5; i++){
         scanf("%s", names[i]);
+    }
+
+    for(int i = 0; i < 5; i++){
+        if(names[i][0] > 90){
+            names[i][0] = names[i][0] - 32;
+        }
     }
 
     int allGrades[5][13];
