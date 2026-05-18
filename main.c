@@ -2,55 +2,63 @@
 #include <stdlib.h>
 #include <string.h>
 
+void inputGrade(int grade[13]){
+    for(int i = 0; i < 13; i++){
+        scanf("%d", &grade[i]);
+    }
+}
+
+int avarageScore(int grade[13]){
+    float sum = 0;
+    for(int i = 0; i < 13; i++){
+        sum += grade[i];
+    }
+    return sum / 13;
+}
+
+void printScores(char name[10], int grades[13]){
+    printf("%s ", name);
+    for(int i = 0; i < 13; i++){
+        printf("%d ", grades[i]);
+    }
+    printf("\n");
+}
+
 int main(){
-    char p1[11] = {};
-    char p2[11] = {};
-    char p3[11] = {};
-    char p4[11] = {};
-    char p5[11] = {};
-    int p1Total;
-    int p2Total;
-    int p3Total;
-    int p4Total;
-    int p5Total;
-    int allStudentGrades[5] = {p1Total, p2Total, p3Total, p4Total, p5Total};
+    char name1[10];
+    char name2[10];
+    char name3[10];
+    char name4[10];
+    char name5[10];
 
-    scanf("%s", p1);
-    scanf("%s", p2);
-    scanf("%s", p3);
-    scanf("%s", p4);
-    scanf("%s", p5);
-    
-    char students[5][11];
+    scanf("%s", name1);
+    scanf("%s", name2); 
+    scanf("%s", name3);
+    scanf("%s", name4);
+    scanf("%s", name5);
 
+    int grade1[13];
+    inputGrade(grade1);
+    int grade2[13];
+    inputGrade(grade2);
+    int grade3[13];
+    inputGrade(grade3);
+    int grade4[13];
+    inputGrade(grade4);
+    int grade5[13];
+    inputGrade(grade5);
 
-    //Big letter
-    for(int i = 0; i < 5; i++){
-        if(students[i][0] > 90){
-            students[i][0] -= 32;
-        }
-    }
+    float avarage1 = avarageScore(grade1);
+    float avarage2 = avarageScore(grade2);
+    float avarage3 = avarageScore(grade3);
+    float avarage4 = avarageScore(grade4);
+    float avarage5 = avarageScore(grade5);
 
-    int studentGrades[5][13];
-
-    //Adding grades
-    for(int i = 0; i < 5; i++){
-        for(int j = 0; j < 13; j++){
-            int grade;
-            scanf("%d", grade);
-            studentGrades[i][j] = grade;
-        }
-    }
-
-    //Printing students and calculating avarage score
-    for(int i = 0; i < 5; i++){
-        printf("%s ", students[i]);
-        for(int j = 0; j < 13; j++){
-            printf("%d ", studentGrades[i][j]);
-            allStudentGrades[i] += studentGrades[i][j];
-        }
-        allStudentGrades[i] /= 13;
-    }
+    printScores(name1, grade1);
+    printScores(name2, grade2);
+    printScores(name3, grade3);
+    printScores(name4, grade4);
+    printScores(name5, grade5);
 
     return 0;
 }
