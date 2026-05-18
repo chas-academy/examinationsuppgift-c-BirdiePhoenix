@@ -43,9 +43,20 @@ int main(){
     }
 
     for(int i = 0; i < 5; i++){
-        if(names[i][0] > 90){
-            names[i][0] = names[i][0] - 32;
-        }
+        for(int j = 0; j < 11; j++){
+            if(names[i][j] == '\0'){
+                break;
+            }
+            else if(j == 0){
+                if(names[i][0] > 90){
+                    names[i][0] = names[i][0] - 32;
+                }
+            }
+            else{
+                if(names[i][j] < 97){
+                    names[i][j] = names[i][j] + 32;
+                }
+            }
     }
 
     int allGrades[5][13];
