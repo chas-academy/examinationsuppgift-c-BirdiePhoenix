@@ -37,9 +37,11 @@ float calTotalAverage(float averageScores[5]){
 
 int main(){
     char names[5][11];
+    int allGrades[5][13];
 
     for(int i = 0; i < 5; i++){
-        scanf("%s", names[i]);
+        scanf("%10s", names[i]);
+        inputGrade(allGrades[i]);
     }
 
     for(int i = 0; i < 5; i++){
@@ -60,11 +62,6 @@ int main(){
         }
     }
 
-    int allGrades[5][13];
-
-    for(int i = 0; i < 5; i++){
-        inputGrade(allGrades[i]);
-    }
 
     float averageScores[5];
 
