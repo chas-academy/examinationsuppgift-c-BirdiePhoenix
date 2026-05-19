@@ -7,12 +7,12 @@ void inputGrade(int grade[], int nGrades){
     }
 }
 
-float calAverage(int array[], int amount){
+float averageScore(int grade[], int nGrades){
     float sum = 0;
-    for(int i = 0; i < amount; i++){
-        sum += array[i];
+    for(int i = 0; i < nGrades; i++){
+        sum += grade[i];
     }
-    return sum / amount;
+    return sum / nGrades;
 }
 
 int highestAverage(float averageScores[], int nNames){
@@ -25,6 +25,14 @@ int highestAverage(float averageScores[], int nNames){
         }
     }
     return highestIndex;
+}
+
+float calTotalAverage(float averageScores[], int nNames){
+    float sum = 0;
+    for(int i = 0; i < nNames; i++){
+        sum += averageScores[i];
+    }
+    return sum / nNames;
 }
 
 int main(){
@@ -59,14 +67,14 @@ int main(){
     float averageScores[nNames];
 
     for(int i = 0; i < nNames; i++){
-        averageScores[i] = calAvarage(allGrades[i], nGrades);
+        averageScores[i] = averageScore(allGrades[i], nGrades);
     }
 
     int highestIndex = highestAverage(averageScores, nNames);
 
     printf("%s\n", names[highestIndex]);
 
-    float totalAverage = calAverage(averageScores, nNames);
+    float totalAverage = calTotalAverage(averageScores, nNames);
 
     for(int i = 0; i < nNames; i++){
         if(averageScores[i] < totalAverage){
